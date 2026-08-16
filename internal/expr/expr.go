@@ -351,7 +351,7 @@ func fnIf(args []node, vars map[string]float64) (float64, error) {
 func powImpl(base, exp float64) (float64, error) {
 	if base == 0 {
 		if exp == 0 {
-			return 0, nil
+			return 1, nil // 0 ^ 0 = 1（约定）
 		}
 		if exp < 0 {
 			return 0, fmt.Errorf("%w: 0 的 %g 次方", ErrDivideByZero, exp)
